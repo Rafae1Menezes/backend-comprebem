@@ -1,10 +1,10 @@
-import { inject, injectable } from "tsyringe";
+import { inject, injectable } from 'tsyringe';
 
 @injectable()
 class ListShoppingUseCase {
   constructor(
-    @inject("ListShoppingRepository")
-    private listShoppingRepository: IListShoppingRepository
+    @inject('ListShoppingRepository')
+    private listShoppingRepository: IListShoppingRepository,
   ) {}
 
   async execute() {
