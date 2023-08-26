@@ -1,0 +1,3 @@
+interface IListShoppingRepository {
+  list(): string;
+}
