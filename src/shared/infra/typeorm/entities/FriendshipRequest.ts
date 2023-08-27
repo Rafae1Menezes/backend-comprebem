@@ -1,36 +1,26 @@
-import { Column, Entity, Index, JoinColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { ConsumerUser } from './ConsumerUser';
 
-@Index('receiver_user_id', ['receiverUserId'], {})
-@Index('sender_user_id', ['senderUserId'], {})
-@Entity('FriendshipRequest', { schema: 'comprebem_db' })
+@Entity()
 export class FriendshipRequest {
-  @Column('int', { primary: true, name: 'id' })
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('int', { name: 'sender_user_id', nullable: true })
-  senderUserId: number | null;
+  @Column()
+  status: string;
 
-  @Column('int', { name: 'receiver_user_id', nullable: true })
-  receiverUserId: number | null;
+  @ManyToOne(() => ConsumerUser)
+  @JoinColumn({ name: 'sender_user_id' })
+  sender_user: ConsumerUser;
 
-  @Column('varchar', { name: 'status', nullable: true, length: 255 })
-  status: string | null;
-
-  @ManyToOne(
-    () => ConsumerUser,
-    (consumerUser) => consumerUser.friendshipRequests,
-    { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' },
-  )
-  @JoinColumn([{ name: 'sender_user_id', referencedColumnName: 'userId' }])
-  senderUser: ConsumerUser;
-
-  @ManyToOne(
-    () => ConsumerUser,
-    (consumerUser) => consumerUser.friendshipRequests2,
-    { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' },
-  )
-  @JoinColumn([{ name: 'receiver_user_id', referencedColumnName: 'userId' }])
-  receiverUser: ConsumerUser;
+  @ManyToOne(() => ConsumerUser)
+  @JoinColumn({ name: 'receiver_user_id' })
+  receiver_user: ConsumerUser;
 }

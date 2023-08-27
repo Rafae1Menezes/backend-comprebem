@@ -1,28 +1,19 @@
-import { Column, Entity, OneToOne } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { ConsumerUser } from './ConsumerUser';
-import { SupermarketUser } from './SupermarketUser';
-
-@Entity('User', { schema: 'comprebem_db' })
+@Entity()
 export class User {
-  @Column('int', { primary: true, name: 'id' })
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('varchar', { name: 'name', nullable: true, length: 255 })
-  name: string | null;
+  @Column()
+  name: string;
 
-  @Column('varchar', { name: 'email', nullable: true, length: 255 })
-  email: string | null;
+  @Column()
+  email: string;
 
-  @Column('varchar', { name: 'city', nullable: true, length: 255 })
-  city: string | null;
+  @Column()
+  city: string;
 
-  @Column('varchar', { name: 'password', nullable: true, length: 255 })
-  password: string | null;
-
-  @OneToOne(() => ConsumerUser, (consumerUser) => consumerUser.userId)
-  consumerUser: ConsumerUser;
-
-  @OneToOne(() => SupermarketUser, (supermarketUser) => supermarketUser.user)
-  supermarketUser: SupermarketUser;
+  @Column()
+  password: string;
 }

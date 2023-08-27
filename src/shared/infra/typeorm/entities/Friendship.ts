@@ -1,30 +1,26 @@
-import { Column, Entity, Index, JoinColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { ConsumerUser } from './ConsumerUser';
 
-@Index('user_id2', ['userId2'], {})
-@Entity('Friendship', { schema: 'comprebem_db' })
+@Entity()
 export class Friendship {
-  @Column('int', { primary: true, name: 'user_id1' })
-  userId1: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-  @Column('int', { primary: true, name: 'user_id2' })
-  userId2: number;
+  @Column()
+  status: string;
 
-  @Column('varchar', { name: 'status', nullable: true, length: 255 })
-  status: string | null;
+  @OneToOne(() => ConsumerUser)
+  @JoinColumn({ name: 'user_id1' })
+  user1: ConsumerUser;
 
-  @ManyToOne(() => ConsumerUser, (consumerUser) => consumerUser.friendships, {
-    onDelete: 'NO ACTION',
-    onUpdate: 'NO ACTION',
-  })
-  @JoinColumn([{ name: 'user_id1', referencedColumnName: 'userId' }])
-  userId: ConsumerUser;
-
-  @ManyToOne(() => ConsumerUser, (consumerUser) => consumerUser.friendships2, {
-    onDelete: 'NO ACTION',
-    onUpdate: 'NO ACTION',
-  })
-  @JoinColumn([{ name: 'user_id2', referencedColumnName: 'userId' }])
-  userId3: ConsumerUser;
+  @OneToOne(() => ConsumerUser)
+  @JoinColumn({ name: 'user_id2' })
+  user2: ConsumerUser;
 }

@@ -1,53 +1,33 @@
 import {
   Column,
   Entity,
-  Index,
   JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 
 import { ConsumerUser } from './ConsumerUser';
 import { Product } from './Product';
 
-@Index('consumer_user_id', ['consumerUserId'], {})
-@Entity('ShoppingList', { schema: 'comprebem_db' })
+@Entity()
 export class ShoppingList {
-  @Column('int', { primary: true, name: 'id' })
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('varchar', { name: 'name', nullable: true, length: 255 })
-  name: string | null;
+  @Column()
+  name: string;
 
-  @Column('int', { name: 'consumer_user_id', nullable: true })
-  consumerUserId: number | null;
+  @ManyToOne(() => ConsumerUser)
+  @JoinColumn({ name: 'consumer_user_id' })
+  consumer_user: ConsumerUser;
 
-  @ManyToMany(() => ConsumerUser, (consumerUser) => consumerUser.shoppingLists)
-  @JoinTable({
-    name: 'SharedList',
-    joinColumns: [{ name: 'shopping_list_id', referencedColumnName: 'id' }],
-    inverseJoinColumns: [
-      { name: 'friend_user_id', referencedColumnName: 'userId' },
-    ],
-    schema: 'comprebem_db',
-  })
-  consumerUsers: ConsumerUser[];
-
-  @ManyToOne(
-    () => ConsumerUser,
-    (consumerUser) => consumerUser.shoppingLists2,
-    { onDelete: 'NO ACTION', onUpdate: 'NO ACTION' },
-  )
-  @JoinColumn([{ name: 'consumer_user_id', referencedColumnName: 'userId' }])
-  consumerUser: ConsumerUser;
-
-  @ManyToMany(() => Product, (product) => product.shoppingLists)
-  @JoinTable({
-    name: 'ShoppingListProduct',
-    joinColumns: [{ name: 'shopping_list_id', referencedColumnName: 'id' }],
-    inverseJoinColumns: [{ name: 'product_id', referencedColumnName: 'id' }],
-    schema: 'comprebem_db',
-  })
+  @ManyToMany(() => Product)
+  @JoinTable({ name: 'ShoppingListProduct' })
   products: Product[];
+
+  @ManyToMany(() => ConsumerUser)
+  @JoinTable({ name: 'SharedList' })
+  shared_with: ConsumerUser[];
 }
