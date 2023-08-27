@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import '../typeorm/connection';
 import { app } from './app';
 
 const PORT = 3333;
