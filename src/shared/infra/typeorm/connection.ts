@@ -2,8 +2,7 @@ import { DataSource } from 'typeorm';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
-  host: 'localhost',
-  port: 3306,
+  host: 'comprebem-db',
   username: 'adm',
   password: '123',
   database: 'comprebem_db',
