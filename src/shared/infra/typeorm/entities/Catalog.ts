@@ -36,6 +36,6 @@ export class Catalog {
   creator_user: SupermarketUser;
 
   @ManyToMany(() => Product)
-  @JoinTable({ name: 'CatalogProduct' })
+  @JoinTable({ name: 'catalog_product' })
   products: Product[];
 }

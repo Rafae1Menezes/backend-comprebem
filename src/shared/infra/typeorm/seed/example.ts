@@ -18,17 +18,17 @@ async function example() {
   );
 
   await AppDataSource.query(
-    "INSERT INTO `shopping_list` VALUES (1,'Bebidas e petiscos',1),(2,'Presentes',1),(3,'Imperdível',1),(4,'Feira',1),(5,'Para casa',1),(6,'Congelados',1);",
+    "INSERT INTO `shoppinglist` VALUES (1,'Bebidas e petiscos',1),(2,'Presentes',1),(3,'Imperdível',1),(4,'Feira',1),(5,'Para casa',1),(6,'Congelados',1);",
   );
 
-  await AppDataSource.query('INSERT INTO `ShoppingListProduct` VALUES (1,1);');
+  await AppDataSource.query('INSERT INTO `shoppinglist_product` VALUES (1,1);');
 
   await AppDataSource.query(
     "INSERT INTO `catalog` VALUES (1,'promoção','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,2),(2,'ofertas','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,3),(3,'catalogo','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,4);",
   );
 
   await AppDataSource.query(
-    'INSERT INTO `CatalogProduct` VALUES (1,1),(1,6),(1,7),(1,8),(1,12),(2,2),(2,4),(2,10),(3,3),(3,5),(3,9),(3,11);',
+    'INSERT INTO `catalog_product` VALUES (1,1),(1,6),(1,7),(1,8),(1,12),(2,2),(2,4),(2,10),(3,3),(3,5),(3,9),(3,11);',
   );
 
   await AppDataSource.destroy();

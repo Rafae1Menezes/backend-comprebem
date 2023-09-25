@@ -6,18 +6,18 @@ import { AddProductToShoppingListUseCase } from './AddProductToShoppingListUseCa
 class AddProductToShoppingListController {
   async handle(request: Request, response: Response): Promise<Response> {
     const listId = parseInt(request.params.listId, 10);
-    const productId = parseInt(request.params.productId, 10);
+    const productId = parseInt(request.body.productId, 10);
 
     const addProductToShoppingListUseCase = container.resolve(
       AddProductToShoppingListUseCase,
     );
 
-    const all = await addProductToShoppingListUseCase.execute({
+    const res = await addProductToShoppingListUseCase.execute({
       listId,
       productId,
     });
 
-    return response.status(200).json(all);
+    return response.status(200).json(res);
   }
 }
 

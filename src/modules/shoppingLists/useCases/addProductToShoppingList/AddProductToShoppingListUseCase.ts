@@ -17,7 +17,17 @@ class AddProductToShoppingListUseCase {
       const shoppingList = await this.shoppinglistRepository.findOne(listId);
       const product = await this.productRepository.findOne(productId);
 
-      return { shoppingList, product };
+      if (shoppingList) {
+        if (!shoppingList.products) {
+          shoppingList.products = [];
+        }
+
+        shoppingList.products.push(product);
+
+        this.shoppinglistRepository.save(shoppingList);
+      }
+
+      return true;
     } catch (error) {
       throw new Error(error);
     }

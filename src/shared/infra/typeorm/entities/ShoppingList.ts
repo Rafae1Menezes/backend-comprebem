@@ -11,7 +11,7 @@ import {
 import { ConsumerUser } from './ConsumerUser';
 import { Product } from './Product';
 
-@Entity('shopping_list')
+@Entity('shoppinglist')
 export class ShoppingList {
   @PrimaryGeneratedColumn()
   id: number;
@@ -20,14 +20,14 @@ export class ShoppingList {
   name: string;
 
   @ManyToOne(() => ConsumerUser)
-  @JoinColumn({ name: 'consumer_user_id' })
-  consumer_user: ConsumerUser;
+  @JoinColumn({ name: 'user_id' })
+  owner_id: ConsumerUser;
 
   @ManyToMany(() => Product)
-  @JoinTable({ name: 'ShoppingListProduct' })
+  @JoinTable({ name: 'shoppinglist_product' })
   products: Product[];
 
   @ManyToMany(() => ConsumerUser)
-  @JoinTable({ name: 'SharedList' })
+  @JoinTable({ name: 'shoppinglist_user' })
   shared_with: ConsumerUser[];
 }
