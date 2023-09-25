@@ -1,7 +1,6 @@
-import { Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { SupermarketUser } from './SupermarketUser';
-
+@Entity('product')
 export class Product {
   @PrimaryGeneratedColumn()
   id: number;
@@ -18,7 +17,6 @@ export class Product {
   @Column()
   category: string;
 
-  @ManyToOne(() => SupermarketUser)
-  @JoinColumn({ name: 'creator_user_id' })
-  creator_user: SupermarketUser;
+  @Column()
+  photo: string;
 }

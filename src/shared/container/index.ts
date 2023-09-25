@@ -1,9 +1,16 @@
 import { container } from 'tsyringe';
 
-import { IListShoppingRepository } from '@modules/shoppingLists/repositories/IListShoppingRepository';
-import { ListShoppingRepository } from '@shared/infra/typeorm/repositories/ListShoppingRepository';
+import { IProductRepository } from '@modules/products/repositories/IProductRepository';
+import { IShoppingListRepository } from '@modules/shoppingLists/repositories/IShoppingListRepository';
+import { ShoppingListRepository } from '@shared/infra/typeorm/repositories/ListShoppingRepository';
+import { ProductRepository } from '@shared/infra/typeorm/repositories/productRepository';
 
-container.registerSingleton<IListShoppingRepository>(
-  'ListShoppingRepository',
-  ListShoppingRepository,
+container.registerSingleton<IShoppingListRepository>(
+  'ShoppingListRepository',
+  ShoppingListRepository,
+);
+
+container.registerSingleton<IProductRepository>(
+  'ProductRepository',
+  ProductRepository,
 );

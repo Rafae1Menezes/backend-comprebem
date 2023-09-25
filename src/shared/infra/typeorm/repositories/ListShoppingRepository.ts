@@ -1,10 +1,18 @@
-import { IListShoppingRepository } from '@modules/shoppingLists/repositories/IListShoppingRepository';
+import { IShoppingListRepository } from '@modules/shoppingLists/repositories/IShoppingListRepository';
 
-class ListShoppingRepository implements IListShoppingRepository {
-  list(): string {
-    const all = 'oi';
-    return all;
+import { AppDataSource } from '../connection';
+import { ShoppingList } from '../entities/ShoppingList';
+
+class ShoppingListRepository implements IShoppingListRepository {
+  async findOne(id: number): Promise<ShoppingList> {
+    const list = AppDataSource.getRepository(ShoppingList).findOne({
+      where: {
+        id,
+      },
+    });
+
+    return list;
   }
 }
 
-export { ListShoppingRepository };
+export { ShoppingListRepository };

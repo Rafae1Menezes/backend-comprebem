@@ -11,7 +11,7 @@ import {
 import { ConsumerUser } from './ConsumerUser';
 import { Product } from './Product';
 
-@Entity()
+@Entity('shopping_list')
 export class ShoppingList {
   @PrimaryGeneratedColumn()
   id: number;

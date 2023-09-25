@@ -1,11 +1,15 @@
 import { Router } from 'express';
 
-import { ListShoppingListsController } from '@modules/shoppingLists/useCases/ListShoppingLists/ListShoppingListsController';
+import { AddProductToShoppingListController } from '@modules/shoppingLists/useCases/addProductToShoppingList/AddProductToShoppingListController';
 
 const shoppingListRoutes = Router();
 
-const listShoppingListsController = new ListShoppingListsController();
+const addProductToShoppingListController =
+  new AddProductToShoppingListController();
 
-shoppingListRoutes.get('/', listShoppingListsController.handle);
+shoppingListRoutes.post(
+  '/add-product/:listId/:productId',
+  addProductToShoppingListController.handle,
+);
 
 export { shoppingListRoutes };

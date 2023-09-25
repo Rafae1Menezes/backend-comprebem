@@ -8,7 +8,7 @@ import {
 
 import { ConsumerUser } from './ConsumerUser';
 
-@Entity()
+@Entity('friendship')
 export class Friendship {
   @PrimaryGeneratedColumn()
   id: number;
