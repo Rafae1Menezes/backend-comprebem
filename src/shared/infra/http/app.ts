@@ -1,5 +1,6 @@
 import '@shared/container';
 
+import cors from 'cors';
 import express from 'express';
 
 import { AppDataSource } from '../typeorm/connection';
@@ -12,6 +13,8 @@ AppDataSource.initialize()
   .catch((error) => console.log(error));
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 

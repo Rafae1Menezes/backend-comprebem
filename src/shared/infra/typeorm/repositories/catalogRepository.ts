@@ -2,6 +2,8 @@ import { ICatalogRepository } from '@modules/catalogs/repositories/ICatalogRepos
 
 import { AppDataSource } from '../connection';
 import { Catalog } from '../entities/Catalog';
+import { Category } from '../entities/Category';
+import { Product } from '../entities/Product';
 
 class CatalogRepository implements ICatalogRepository {
   private repository;
@@ -24,17 +26,28 @@ class CatalogRepository implements ICatalogRepository {
 
     const products = catalogs.map((c) => c.products).flat();
 
-    const groupedProducts = {};
+    const groupedCategories: Category[] = products.reduce(
+      (categories: Category[], product: Product) => {
+        const existingCategory = categories.find(
+          (category) => category.name === product.category,
+        );
 
-    products.forEach((produto) => {
-      const categoria = produto.category;
-      if (!groupedProducts[categoria]) {
-        groupedProducts[categoria] = [];
-      }
-      groupedProducts[categoria].push(produto);
-    });
+        if (existingCategory) {
+          existingCategory.products.push(product);
+        } else {
+          const newCategory: Category = {
+            name: product.category,
+            products: [product],
+          };
+          categories.push(newCategory);
+        }
 
-    return groupedProducts;
+        return categories;
+      },
+      [],
+    );
+
+    return groupedCategories;
   }
 }
 

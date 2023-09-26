@@ -11,8 +11,6 @@ class GetAllActiveProductsController {
 
     const res = await getAllActiveProductsUseCase.execute();
 
-    console.log(res);
-
     return response.status(200).json(res);
   }
 }

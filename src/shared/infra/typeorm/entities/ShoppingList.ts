@@ -1,10 +1,8 @@
 import {
   Column,
   Entity,
-  JoinColumn,
   JoinTable,
   ManyToMany,
-  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -19,9 +17,8 @@ export class ShoppingList {
   @Column()
   name: string;
 
-  @ManyToOne(() => ConsumerUser)
-  @JoinColumn({ name: 'user_id' })
-  owner_id: ConsumerUser;
+  @Column()
+  owner_id: number;
 
   @ManyToMany(() => Product)
   @JoinTable({ name: 'shoppinglist_product' })
