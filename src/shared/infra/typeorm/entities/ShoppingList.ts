@@ -25,6 +25,6 @@ export class ShoppingList {
   products: Product[];
 
   @ManyToMany(() => ConsumerUser)
-  @JoinTable({ name: 'shoppinglist_user' })
-  shared_with: ConsumerUser[];
+  @JoinTable({ name: 'shoppinglist_shared' })
+  consumer_users: ConsumerUser[];
 }

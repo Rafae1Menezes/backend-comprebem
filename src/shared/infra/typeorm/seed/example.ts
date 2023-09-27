@@ -4,11 +4,11 @@ async function example() {
   await AppDataSource.initialize();
 
   await AppDataSource.query(
-    "INSERT INTO `user` VALUES (1,'rafael','email@gmail.com','manhuacu','123456',''),(2,'Coelho Diniz','email2@gmail.com','manhuaçu','123asd','coelhodiniz.jpg'),(3,'Soares','email@gmail.com','manhuaçu','123456','soares.jpg'),(4,'Barbosa','email@gmail.com','manhuaçu','123456','barbosa.jpg');",
+    "INSERT INTO `catalog` VALUES (1,'promoção','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,2),(2,'ofertas','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,3),(3,'catalogo','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,4);",
   );
 
   await AppDataSource.query(
-    'INSERT INTO `supermarket_user` VALUES (2),(3),(4);',
+    'INSERT INTO `catalog_product` VALUES (1,1),(1,6),(1,7),(1,8),(1,12),(2,2),(2,4),(2,10),(3,3),(3,5),(3,9),(3,11);',
   );
 
   await AppDataSource.query('INSERT INTO `consumer_user` VALUES (1);');
@@ -21,14 +21,16 @@ async function example() {
     "INSERT INTO `shoppinglist` VALUES (1,'Bebidas e petiscos',1),(2,'Presentes',1),(3,'Imperdível',1),(4,'Feira',1),(5,'Para casa',1),(6,'Congelados',1);",
   );
 
-  await AppDataSource.query('INSERT INTO `shoppinglist_product` VALUES (1,1);');
-
   await AppDataSource.query(
-    "INSERT INTO `catalog` VALUES (1,'promoção','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,2),(2,'ofertas','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,3),(3,'catalogo','catalogo de promoção','2023-01-01 00:00:00','2023-12-12 00:00:00',1,4);",
+    'INSERT INTO `shoppinglist_product` VALUES (1,1),(1,4),(1,6),(3,12),(6,5);',
   );
 
   await AppDataSource.query(
-    'INSERT INTO `catalog_product` VALUES (1,1),(1,6),(1,7),(1,8),(1,12),(2,2),(2,4),(2,10),(3,3),(3,5),(3,9),(3,11);',
+    'INSERT INTO `supermarket_user` VALUES (2),(3),(4);',
+  );
+
+  await AppDataSource.query(
+    "INSERT INTO `user` VALUES (1,'rafael','email@gmail.com','manhuacu','123456',''),(2,'Coelho Diniz','email2@gmail.com','manhuaçu','123asd','coelhodiniz.jpg'),(3,'Soares','email@gmail.com','manhuaçu','123456','soares.jpg'),(4,'Barbosa','email@gmail.com','manhuaçu','123456','barbosa.jpg');",
   );
 
   await AppDataSource.destroy();

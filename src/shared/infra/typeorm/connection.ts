@@ -23,7 +23,6 @@ export const AppDataSource = new DataSource({
     ConsumerUser,
     Product,
     User,
-    ConsumerUser,
     Catalog,
     Friendship,
     FriendshipRequest,

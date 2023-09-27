@@ -14,8 +14,6 @@ class GetAllActiveProductsUseCase {
       const productsWithinActiveCatalogs =
         await this.catalogRepository.getAllActiveProdutcs();
 
-      console.log(productsWithinActiveCatalogs);
-
       return productsWithinActiveCatalogs;
     } catch (error) {
       throw new Error(error);
