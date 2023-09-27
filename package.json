@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "src/shared/infra/http/server.ts",
   "scripts": {
+    "start": "NODE_PATH=./dist ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "build": "tsc -p ./tsconfig.json",
     "dev": "ts-node-dev -r tsconfig-paths/register --poll --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint '**/*.ts' --fix",
