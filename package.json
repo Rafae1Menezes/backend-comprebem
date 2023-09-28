@@ -1,12 +1,11 @@
 {
   "name": "backend-comprebem",
   "version": "1.0.0",
-  "main": "src/shared/infra/http/server.ts",
+  "main": "./dist/src/shared/infra/http/server.js",
   "scripts": {
-    "start": "NODE_PATH=./dist ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
-    "build": "tsc -p ./tsconfig.json",
+    "start": "node -r tsconfig-paths/register ./dist/src/shared/infra/http/server.js ",
+    "build": "tsc -p ./tsconfig.json  && tsc-alias",
     "dev": "ts-node-dev -r tsconfig-paths/register --poll --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint '**/*.ts' --fix",
     "prettify": "prettier '**/*.ts' --write",
     "seed:example": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/example.ts",
@@ -38,6 +37,7 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "prettier": "3.0.2",
     "ts-node-dev": "2.0.0",
+    "tsc-alias": "^1.8.8",
     "tsconfig-paths": "4.2.0",
     "typeorm-model-generator": "^0.4.6",
     "typescript": "^5.1.5"
