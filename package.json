@@ -2,6 +2,9 @@
   "name": "backend-comprebem",
   "version": "1.0.0",
   "main": "./dist/src/shared/infra/http/server.js",
+  "engines": {
+    "node": "18.17.1"
+  },
   "scripts": {
     "start": "node -r tsconfig-paths/register ./dist/src/shared/infra/http/server.js ",
     "build": "tsc -p ./tsconfig.json  && tsc-alias",
