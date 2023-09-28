@@ -8,7 +8,7 @@ import { ShoppingListRepository } from '../infra/typeorm/repositories/listShoppi
 import { ProductRepository } from '../infra/typeorm/repositories/productRepository';
 
 container.registerSingleton<IShoppingListRepository>(
-  'shoppinglistRepository',
+  'ShoppingListRepository',
   ShoppingListRepository,
 );
 
