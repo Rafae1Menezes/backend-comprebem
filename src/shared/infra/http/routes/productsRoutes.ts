@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { GetAllActiveProductsController } from '@modules/products/useCases/GetAllActiveProductController';
+import { GetAllActiveProductsController } from '../../../../modules/products/useCases/GetAllActiveProductController';
 
 const productsRoutes = Router();
 

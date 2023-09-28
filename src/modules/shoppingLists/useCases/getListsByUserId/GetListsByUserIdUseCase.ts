@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IShoppingListRepository } from '@modules/shoppingLists/repositories/IShoppingListRepository';
+import { IShoppingListRepository } from '../../repositories/IShoppingListRepository';
 
 @injectable()
 class GetListsByUserIdUseCase {

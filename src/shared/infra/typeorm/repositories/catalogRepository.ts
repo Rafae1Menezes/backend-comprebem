@@ -1,5 +1,4 @@
-import { ICatalogRepository } from '@modules/catalogs/repositories/ICatalogRepository';
-
+import { ICatalogRepository } from '../../../../modules/catalogs/repositories/ICatalogRepository';
 import { AppDataSource } from '../connection';
 import { Catalog } from '../entities/Catalog';
 import { Category } from '../entities/Category';

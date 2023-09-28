@@ -1,5 +1,4 @@
-import { IShoppingListRepository } from '@modules/shoppingLists/repositories/IShoppingListRepository';
-
+import { IShoppingListRepository } from '../../../../modules/shoppingLists/repositories/IShoppingListRepository';
 import { AppDataSource } from '../connection';
 import { ShoppingList } from '../entities/ShoppingList';
 

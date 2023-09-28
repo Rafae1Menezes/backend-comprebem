@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import { AddProductToShoppingListController } from '@modules/shoppingLists/useCases/addProductToShoppingList/AddProductToShoppingListController';
-import { GetListsByUserIdController } from '@modules/shoppingLists/useCases/getListsByUserId/GetListsByUserIdController';
+import { AddProductToShoppingListController } from '../../../../modules/shoppingLists/useCases/addProductToShoppingList/AddProductToShoppingListController';
+import { GetListsByUserIdController } from '../../../../modules/shoppingLists/useCases/getListsByUserId/GetListsByUserIdController';
 
 const shoppingListRoutes = Router();
 

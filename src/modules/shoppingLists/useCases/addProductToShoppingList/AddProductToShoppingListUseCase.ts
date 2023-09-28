@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IProductRepository } from '@modules/products/repositories/IProductRepository';
-import { IShoppingListRepository } from '@modules/shoppingLists/repositories/IShoppingListRepository';
+import { IProductRepository } from '../../../products/repositories/IProductRepository';
+import { IShoppingListRepository } from '../../repositories/IShoppingListRepository';
 
 @injectable()
 class AddProductToShoppingListUseCase {

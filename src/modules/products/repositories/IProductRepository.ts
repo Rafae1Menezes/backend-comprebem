@@ -1,4 +1,4 @@
-import { Product } from '@shared/infra/typeorm/entities/Product';
+import { Product } from '../../../shared/infra/typeorm/entities/Product';
 
 interface IProductRepository {
   findOne(id: number): Promise<Product>;

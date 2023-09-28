@@ -1,13 +1,13 @@
 {
   "name": "backend-comprebem",
   "version": "1.0.0",
-  "main": "./dist/src/shared/infra/http/server.js",
+  "main": "./dist/shared/infra/http/server.js",
   "engines": {
     "node": "18.17.1"
   },
   "scripts": {
-    "start": "node -r tsconfig-paths/register ./dist/src/shared/infra/http/server.js ",
-    "build": "tsc -p ./tsconfig.json  && tsc-alias -p ./tsconfig.json ",
+    "start": "node -r tsconfig-paths/register ./dist/shared/infra/http/server.js ",
+    "build": "tsc -p ./tsconfig.json",
     "dev": "ts-node-dev -r tsconfig-paths/register --poll --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "lint": "eslint '**/*.ts' --fix",
     "prettify": "prettier '**/*.ts' --write",

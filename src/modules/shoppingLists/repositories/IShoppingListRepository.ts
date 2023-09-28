@@ -1,4 +1,4 @@
-import { ShoppingList } from '@shared/infra/typeorm/entities/ShoppingList';
+import { ShoppingList } from '../../../shared/infra/typeorm/entities/ShoppingList';
 
 interface IShoppingListRepository {
   getShppingListsByUserId(userId: number);

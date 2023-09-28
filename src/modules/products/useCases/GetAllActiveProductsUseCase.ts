@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICatalogRepository } from '@modules/catalogs/repositories/ICatalogRepository';
+import { ICatalogRepository } from '../../catalogs/repositories/ICatalogRepository';
 
 @injectable()
 class GetAllActiveProductsUseCase {

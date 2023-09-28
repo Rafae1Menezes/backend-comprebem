@@ -1,5 +1,4 @@
-import { IProductRepository } from '@modules/products/repositories/IProductRepository';
-
+import { IProductRepository } from '../../../../modules/products/repositories/IProductRepository';
 import { AppDataSource } from '../connection';
 import { Product } from '../entities/Product';
 
