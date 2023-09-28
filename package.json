@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node -r tsconfig-paths/register ./dist/src/shared/infra/http/server.js ",
-    "build": "tsc -p ./tsconfig.json  && tsc-alias",
+    "build": "tsc -p ./tsconfig.json  && tsc-alias -p ./tsconfig.json ",
     "dev": "ts-node-dev -r tsconfig-paths/register --poll --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "lint": "eslint '**/*.ts' --fix",
     "prettify": "prettier '**/*.ts' --write",
