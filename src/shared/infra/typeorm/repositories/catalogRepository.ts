@@ -17,11 +17,14 @@ class CatalogRepository implements ICatalogRepository {
     const catalogs = await this.repository
       .createQueryBuilder('catalog')
       .innerJoinAndSelect('catalog.products', 'product')
+      .innerJoinAndSelect('product.owner', 'owner') // Remova o ponto após 'owner'
+      .innerJoinAndSelect('owner.user', 'user')
       .where('catalog.start_date <= :currentDate', { currentDate })
       .andWhere('catalog.end_date >= :currentDate', { currentDate })
       .andWhere('catalog.is_active = true')
-      .orderBy('product.category')
       .getMany();
+
+    console.log(catalogs[0].products[0]);
 
     const products = catalogs.map((c) => c.products).flat();
 

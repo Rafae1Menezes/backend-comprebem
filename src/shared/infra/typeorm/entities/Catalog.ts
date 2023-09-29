@@ -32,8 +32,8 @@ export class Catalog {
   is_active: boolean;
 
   @ManyToOne(() => SupermarketUser)
-  @JoinColumn({ name: 'creator_user_id' })
-  creator_user: SupermarketUser;
+  @JoinColumn({ name: 'owner_id' })
+  owner: SupermarketUser;
 
   @ManyToMany(() => Product)
   @JoinTable({ name: 'catalog_product' })

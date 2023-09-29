@@ -26,8 +26,8 @@ CREATE TABLE Product (
   price DECIMAL(10, 2),
   description VARCHAR(255),
   category VARCHAR(255),
-  creator_user_id INT,
-  FOREIGN KEY (creator_user_id) REFERENCES SupermarketUser(user_id)
+  owner_id INT,
+  FOREIGN KEY (owner_id) REFERENCES SupermarketUser(user_id)
 );
 
 -- Catalog table
@@ -38,8 +38,8 @@ CREATE TABLE Catalog (
   start_date DATE,
   end_date DATE,
   is_active BOOLEAN,
-  creator_user_id INT,
-  FOREIGN KEY (creator_user_id) REFERENCES SupermarketUser(user_id)
+  owner_id INT,
+  FOREIGN KEY (owner_id) REFERENCES SupermarketUser(user_id)
 );
 
 -- CatalogProduct table (association table between Catalog and Product)

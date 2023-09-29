@@ -1,4 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+
+import { SupermarketUser } from './SupermarketUser';
 
 @Entity('product')
 export class Product {
@@ -19,4 +27,8 @@ export class Product {
 
   @Column()
   photo: string;
+
+  @ManyToOne(() => SupermarketUser)
+  @JoinColumn({ name: 'owner_id' })
+  owner: SupermarketUser;
 }
