@@ -12,6 +12,8 @@ import { User } from './entities/User';
 export const AppDataSource = new DataSource({
   type: 'mysql',
   host: process.env.DB_HOST || 'localhost',
+  port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
+  ssl: process.env.DB_SSL || false,
   username: process.env.DB_USER || 'admin',
   password: process.env.DB_PASSWORD || '123456',
   database: process.env.DB_NAME || 'comprebem_db',
